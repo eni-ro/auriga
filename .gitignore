@@ -156,3 +156,7 @@ src/common/lua/luac
 /char-server
 /map-server
 *.pid
+grf
+*.map
+*.tds
+map.info

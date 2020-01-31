@@ -1,0 +1,12 @@
+load: 0
+go: 0
+mes: 0
+autoloot: 0
+resetfeel: 0
+resethate: 0
+die: 0
+achat: 0
+pettalk: 0
+homtalk: 0 
+mapchat: 0
+achat=alliance

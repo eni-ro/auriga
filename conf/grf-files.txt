@@ -6,10 +6,12 @@
 //       grf: ./data.grf
 //   など。
 
-grf: C:\Gravity\Ragnarok\data.grf
-grf: C:\Gravity\Ragnarok\sdata.grf
-grf: C:\Gravity\Ragnarok\adata.grf
-
+//grf: C:\Gravity\Ragnarok\data.grf
+//grf: C:\Gravity\Ragnarok\sdata.grf
+//grf: C:\Gravity\Ragnarok\adata.grf
+//grf: ..\Client\data.grf
+grf: .\grf\data.grf
+grf: .\grf\rdata.grf
 // datadir: <dataフォルダのディレクトリ>
 //   dataフォルダを利用していて且つdataフォルダの読み込みが最優先の場合などに設定する。
 //   dataフォルダのあるディレクトリを指定することでdataフォルダ内のresnametable.txtを読み込み対象にする。

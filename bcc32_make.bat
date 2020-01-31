@@ -2,7 +2,7 @@
 
 @echo コンパイル開始
 @rem パスの追加ですが環境変数に既に組み込んでいる人は不要です。
-set PATH=C:\borland\bcc55\bin;C:\borland\bcc55\Include;C:\borland\bcc55\lib;%PATH%
+set PATH=C:\Users\Admin\Documents\tool\BCC102\bin;C:\Users\Admin\Documents\tool\BCC102\Include;C:\Users\Admin\Documents\tool\BCC102\lib;%PATH%
 
 @rem SQLで必要ならコメントアウトをはずして設定する
 :set __sqlinclude__=-I"C:\Program Files\MySQL\MySQL Server 5.0\Include"
@@ -59,7 +59,7 @@ set PATH=C:\borland\bcc55\bin;C:\borland\bcc55\Include;C:\borland\bcc55\lib;%PAT
 @rem 2007-05-21aSakexe: 20070521
 @rem 2007-02-12aSakexe: 20070212
 @rem 2006-10-23aSakexe: 20061023
-set __PACKETDEF__=-DPACKETVER=20151029 -DNEW_006b
+set __PACKETDEF__=-DPACKETVER=20161228 -DNEW_006b
 
 @rem コンパイルオプション
 @rem SQL⇔TEXTの切り替え、SQL版にする場合は以下のコンパイルオプションをコメントアウトしてください
@@ -72,7 +72,7 @@ set __base__=-DTXT_ONLY
 :set __TXTCONVERTER__=SKIP
 
 @rem zlib.dllをコンパイルする(通常はコメントアウト)
-:set __ZLIB__=-DLOCALZLIB
+set __ZLIB__=-DLOCALZLIB
 
 @rem Login_ID2で、IPを見るようにします(通常はコメントアウト)
 @rem Passwordの代わりにIPを見て接続します、最新の日蔵が使えるようになりますが
@@ -80,7 +80,7 @@ set __base__=-DTXT_ONLY
 :set __SKIP__=-DCMP_AUTHFIFO_IP -DCMP_AUTHFIFO_LOGIN2
 
 @rem httpd を完全に無効にする場合コメントアウトをはずす
-set __NO_HTTPD__=-DNO_HTTPD
+:set __NO_HTTPD__=-DNO_HTTPD
 
 @rem httpd で外部 CGI を使う場合はコメントアウトする
 set __NO_HTTPD_CGI__=-DNO_HTTPD_CGI
@@ -182,27 +182,27 @@ set __warning__=-w-8004 -w-8008 -w-8012 -w-8057 -w-8060 -w-8066
 
 @echo luaコンパイル
 cd src\common\lua
-bcc32 -j255 -c %__warning__% *.c
+bcc32c -j255 -c %__warning__% *.c
 tlib lualib.lib +lapi +lauxlib +lbaselib +lcode +ldblib +ldebug +ldo +ldump +lfunc +lgc +linit +liolib +llex +lmathlib +lmem +loadlib +lobject +lopcodes +loslib +lparser +lstate +lstring +lstrlib +ltable +ltablib +ltm +lua +luac +lundump +lvm +lzio +print.obj
 
 @echo ログインサーバーコンパイル
 cd ..\..\login
-bcc32 -j255 -M -e..\..\login-server.exe %__warning__% %__define__% %__include__% *.c .\%__dbmode__%\*.c %__common__% %__sqllib__% %__lualib__%
+bcc32c -j255 -M -e..\..\login-server.exe %__warning__% %__define__% %__include__% *.c .\%__dbmode__%\*.c %__common__% %__sqllib__% %__lualib__%
 
 @echo キャラクターサーバーコンパイル
 cd ..\char
-bcc32 -j255 -M -e..\..\char-server.exe %__warning__% %__define__% %__include__% *.c .\%__dbmode__%\*.c %__common__% %__sqllib__% %__lualib__%
+bcc32c -j255 -M -e..\..\char-server.exe %__warning__% %__define__% %__include__% *.c .\%__dbmode__%\*.c %__common__% %__sqllib__% %__lualib__%
 
 @echo マップサーバーコンパイル
 cd ..\map
-bcc32 -j255 -M -e..\..\map-server.exe %__warning__% %__define__% %__include__% *.c .\%__dbmode__%\*.c %__common__% %__sqllib__% %__lualib__%
+bcc32c -j255 -M -e..\..\map-server.exe %__warning__% %__define__% %__include__% *.c .\%__dbmode__%\*.c %__common__% %__sqllib__% %__lualib__%
 
 @rem 必要なら txt-converter をコンパイル
 if NOT "%__base__%"=="" goto NOCONVERTER1
 if "%__TXTCONVERTER__%"=="SKIP" goto NOCONVERTER1
 @echo コンバーターコンパイル
 cd ..\converter
-bcc32 -j255 -M -e..\..\txt-converter.exe %__warning__% %__define__% %__include__% *.c %__common__% %__sqllib__%
+bcc32c -j255 -M -e..\..\txt-converter.exe %__warning__% %__define__% %__include__% *.c %__common__% %__sqllib__%
 :NOCONVERTER1
 
 cd ..\..\

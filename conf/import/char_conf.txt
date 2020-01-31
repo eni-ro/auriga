@@ -1,0 +1,15 @@
+login_ip: 127.0.0.1
+login_port: 64704
+
+char_ip: 127.0.0.1
+char_port: 64706 
+
+delete_delay_time: 1
+
+
+human_start_point: prontera.gat,156,188
+doram_start_point: prontera.gat,156,188
+
+
+// 許可するキャラクタースロットの最大数
+max_char_slot: 15

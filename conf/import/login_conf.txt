@@ -1,0 +1,4 @@
+httpd_new_account: 1
+
+login_ip: 127.0.0.1
+login_port: 64704
