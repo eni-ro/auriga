@@ -1724,7 +1724,7 @@
 2551,Rider_Insignia_M,ライダーバッジ,4,20,,500,,13,,1,2088958,2,4,,55,,1,{},{ bonus bAgi,2; if((getequipid(6)==2425) || (getequipid(6)==2434)) bonus bFlee,10; }
 2552,Mithril_Magic_Cape_M,ミスリルマジックマント,4,20,,400,,8:3,,1,1674012,2,4,,70,,1,{},{ bonus4 bAutoSpell,676,1,2000,EAS_REVENGE|EAS_MAGIC|EAS_SELF|EAS_NOSP; /* 本来Lv6 */ }
 2553,Dragon_Manteau,ドラゴンのマント,4,20,,1000,,14,,1,2088958,2,4,,1,,1,{},{ bonus bAgi,1; }
-2554,Nidhoggurs_Shadow_Garb,スキンオブシャドウ,4,20,,400,,25:3,,1,2088958,2,4,,90,,1,{},{ bonus2 bSubEle,Ele_Neutral,7; bonus2 bSubEle,Ele_Water,7; bonus2 bSubEle,Ele_Earth,7; bonus2 bSubEle,Ele_Fire,7; bonus2 bSubEle,Ele_Wind,7; bonus2 bSubEle,Ele_Poison,7; bonus2 bSubEle,Ele_Holy,7; bonus2 bSubEle,Ele_Dark,7; bonus2 bSubEle,Ele_Ghost,7; bonus2 bSubEle,Ele_Undead,7; bonus bMaxSP,Baselevel/3+getequiprefinerycnt(5)*10; bonus2 bSPDrainRate,10,1; }
+2554,Nidhoggurs_Shadow_Garb,スキンオブシャドウ,4,20,,400,,25:3,,1,2088958,2,4,,90,,1,{},{ bonus2 bSubEle,Ele_Neutral,7; bonus2 bSubEle,Ele_Water,7; bonus2 bSubEle,Ele_Earth,7; bonus2 bSubEle,Ele_Fire,7; bonus2 bSubEle,Ele_Wind,7; bonus2 bSubEle,Ele_Poison,7; bonus2 bSubEle,Ele_Holy,7; bonus2 bSubEle,Ele_Dark,7; bonus2 bSubEle,Ele_Ghost,7; bonus2 bSubEle,Ele_Undead,7; bonus bMaxSP,Baselevel/3+getequiprefinerycnt(5)*10; if(equippeditem(29544)==0){ bonus2 bSPDrainRate,10,1; } }
 2555,Freyja_SScarf7,フレイヤの魂スカーフ,4,,,400,,0,,0,2074075135,2,4,,20,,,{},{ bonus bFlee,15; bonus2 bSubEle,Ele_Neutral,15; }
 2556,Freyja_SScarf30,フレイヤの魂スカーフ,4,,,400,,0,,0,2074075135,2,4,,20,,,{},{ bonus bFlee,15; bonus2 bSubEle,Ele_Neutral,15; }
 2557,Freyja_SScarf60,フレイヤの魂スカーフ,4,,,400,,0,,0,2074075135,2,4,,20,,,{},{ bonus bFlee,15; bonus2 bSubEle,Ele_Neutral,15; }
@@ -2590,7 +2590,7 @@
 4438,Banshee_Card,バンシーカード,6,20,,10,,,,,,,769,,,,,{},{ if(getbaseclass(Class) == CLASS_MG) { bonus bMaxSP,100; bonus bMaxHP,-100; bonus2 bAddSkillDamageRate,13,20; bonus2 bAddSkillDamageRate,11,20; bonus2 bAddSkillDamageRate,400,20; } }
 4439,Flame_Skull_Card,フレームスカルカード,6,20,,10,,,,,,,32,,,,,{},{ bonus2 bResEff,Eff_Stun,3000; bonus2 bResEff,Eff_Curse,3000; bonus2 bResEff,Eff_Blind,3000; bonus2 bResEff,Eff_Stone,3000; bonus2 bAddRevEff,Eff_Stun,3000; bonus2 bAddRevEff,Eff_Curse,3000; bonus2 bAddRevEff,Eff_Blind,3000; bonus2 bAddRevEff,Eff_Stone,3000; }
 4440,Necromancer_Card,ネクロマンサーカード,6,20,,10,,,,,,,2,,,,,{},{ if(getiteminfo(getequipid(4),16)==10) { bonus bInt,1; bonus2 bIgnoreMDefRace,Rct_Boss,2; bonus2 bIgnoreMDefRace,Rct_NonBoss,2;} }
-4441,Fallen_Bishop_Card,堕ちた大神官ヒバムカード,6,20,,10,,,,,,,64,,,,,{},{ bonus bMatkRate,10; bonus bMaxSPrate,-50; bonus2 bMagicAddRace,Rct_Human,50; bonus2 bMagicAddRace,Rct_Angel,50; }
+4441,Fallen_Bishop_Card,堕ちた大神官ヒバムカード,6,20,,10,,,,,,,64,,,,,{},{ if(equippeditem(4876)==0){ bonus bMatkRate,10; bonus bMaxSPrate,-50; bonus2 bMagicAddRace,Rct_Human,50; bonus2 bMagicAddRace,Rct_Angel,50; } }
 4442,Tatacho_Card,タタチョカード,6,20,,10,,,,,,,32,,,,,{},{ bonus2 bDefEleEnemy,Ele_Neutral,20; bonus2 bAddEle,Ele_Neutral,5; }
 4443,Aqua_Elemental_Card,アクアエレメンタルカード,6,20,,10,,,,,,,32,,,,,{},{ bonus2 bDefEleEnemy,Ele_Water,20; bonus2 bAddEle,Ele_Water,5; }
 4444,Draco_Card,ドラコカード,6,20,,10,,,,,,,32,,,,,{},{ bonus2 bDefEleEnemy,Ele_Earth,20; bonus2 bAddEle,Ele_Earth,5; }
@@ -2880,12 +2880,12 @@
 4850,Heal_Amount3,大司教2,6,,,,,,,,,,65535,,,,,{},{ callfunc "ItemdbAlmightyHeal",0x7F,6; bonus bUseSPrate,5; }
 4851,Heal_Amount4,大司教3,6,,,,,,,,,,65535,,,,,{},{ callfunc "ItemdbAlmightyHeal",0x7F,12; bonus bUseSPrate,10; }
 4852,Heal_Amount5,大司教4,6,,,,,,,,,,65535,,,,,{},{ callfunc "ItemdbAlmightyHeal",0x7F,20; bonus bUseSPrate,15; }
-4853,Special_Str,Special Str,6,,,,,,,,,,65535,,,,,{},{ if(getequiprefinerycnt() >= 8) { bonus bStr,4; if(getequiprefinerycnt() >= 9) { bonus bAspd,1; bonus2 bFixCastRate,-7,0; } } else bonus bStr,1; }
-4854,Special_Agi,Special Agi,6,,,,,,,,,,65535,,,,,{},{ if(getequiprefinerycnt() >= 8) { bonus bAgi,4; if(getequiprefinerycnt() >= 9) { bonus2 bAddRace,Rct_Boss,1; bonus2 bAddRace,Rct_NonBoss,1; } } else bonus bAgi,1; }
-4855,Special_Vit,Special Vit,6,,,,,,,,,,65535,,,,,{},{ if(getequiprefinerycnt() >= 8) { bonus bVit,4; if(getequiprefinerycnt() >= 9) { bonus bAspd,1; bonus2 bFixCastRate,-7,0; } } else bonus bVit,1; }
-4856,Special_Int,Special Int,6,,,,,,,,,,65535,,,,,{},{ if(getequiprefinerycnt() >= 8) { bonus bInt,4; if(getequiprefinerycnt() >= 9) { bonus bAspd,1; bonus2 bFixCastRate,-7,0; } } else bonus bInt,1; }
-4857,Special_Dex,Special Dex,6,,,,,,,,,,65535,,,,,{},{ if(getequiprefinerycnt() >= 8) { bonus bDex,4; if(getequiprefinerycnt() >= 9) { bonus bAspd,1; bonus2 bFixCastRate,-7,0; } } else bonus bDex,1; }
-4858,Special_Luk,Special Luk,6,,,,,,,,,,65535,,,,,{},{ if(getequiprefinerycnt() >= 8) { bonus bLuk,4; if(getequiprefinerycnt() >= 9) { bonus bAspd,1; bonus2 bFixCastRate,-7,0; } } else bonus bLuk,1; }
+4853,Special_Str,Special Str,6,,,0,,,,,,,65535,,,,,{},{ if(getequiprefinerycnt() >= 8) { bonus bStr,3; if(getequiprefinerycnt() >= 9) { bonus2 bAddRace,Rct_Boss,1; bonus2 bAddRace,Rct_NonBoss,1; } } else bonus bStr,1; }
+4854,Special_Agi,Special Agi,6,,,0,,,,,,,65535,,,,,{},{ if(getequiprefinerycnt() >= 8) { bonus bAgi,3; if(getequiprefinerycnt() >= 9) { bonus2 bAddRace,Rct_Boss,1; bonus2 bAddRace,Rct_NonBoss,1; } } else bonus bAgi,1; }
+4855,Special_Vit,Special Vit,6,,,0,,,,,,,65535,,,,,{},{ if(getequiprefinerycnt() >= 8) { bonus bVit,3; if(getequiprefinerycnt() >= 9) { bonus bMaxSPrate,1; } } else bonus bVit,1; }
+4856,Special_Int,Special Int,6,,,0,,,,,,,65535,,,,,{},{ if(getequiprefinerycnt() >= 8) { bonus bInt,3; if(getequiprefinerycnt() >= 9) { bonus bMatkRate,1; } } else bonus bInt,1; }
+4857,Special_Dex,Special Dex,6,,,0,,,,,,,65535,,,,,{},{ if(getequiprefinerycnt() >= 8) { bonus bDex,3; if(getequiprefinerycnt() >= 9) { bonus bMatkRate,1; } } else bonus bDex,1; }
+4858,Special_Luk,Special Luk,6,,,0,,,,,,,65535,,,,,{},{ if(getequiprefinerycnt() >= 8) { bonus bLuk,3; if(getequiprefinerycnt() >= 9) { bonus bMaxHPrate,1; } } else bonus bLuk,1; }
 4859,Evasion1,Flee + 1,6,,,,,,,,,,65535,,,,,{},{ bonus bFlee,1; }
 4860,Evasion3,Flee + 3,6,,,,,,,,,,65535,,,,,{},{ bonus bFlee,3; }
 4861,MHP1,MaxHP1,6,,,,,,,,,,65535,,,,,{},{ bonus bMaxHPrate,1; }
@@ -3209,7 +3209,7 @@
 5205,Wreath,皇帝の月桂冠,11,,,1000,,3:3,,1,2074075135,2,768,,0,261,1,{},{ bonus bStr,1; bonus bAgi,1; bonus bVit,1; bonus bInt,1; bonus bDex,1; bonus bLuk,1; }
 5206,Romantic_White_Flower,白い花びら,4,20,,100,,0,,0,2065686526,2,1,,0,259,,{},{ bonus2 bSubRace,Rct_Brute,3; bonus2 bMagicSubRace,Rct_Brute,3; }
 5207,Angels_Blessing,金の魂のリング,4,20,,100,,0,,0,2074075135,2,256,,0,260,,{},{ bonus2 bSubEle,Ele_Holy,5; bonus bLuk,1; }
-5208,Rideword_Hat,ライドワード帽,4,20,,300,,3,,1,2065686526,2,256,,40,262,1,{},{ bonus2 bHPDrainRate,5,8; bonus2 bSPDrainRate,1,4; bonus2 bHPPenaltyTime,5000,10; }
+5208,Rideword_Hat,ライドワード帽,4,20,,300,,3,,1,2065686526,2,256,,40,262,1,{},{ if(getequipid(2)!=15145){ if(equippeditem(29543)==0){ bonus2 bHPDrainRate,5,8; } if(equippeditem(29544)==0){ bonus2 bSPDrainRate,1,4; } } bonus2 bHPPenaltyTime,5000,10; }
 5209,Yellow_Baseball_Cap,黄色い野球帽,4,20,,300,,2,,,2065686526,2,256,,,263,1,{},{}
 5210,Flapping_Angel_Wing,天使の忘れもの,4,20,,300,,3,,0,2074075135,2,256,,10,264,1,{},{ bonus bInt,1; bonus bAgi,1; bonus bCastRate,-3; bonus bAspdAddRate,3; }
 5211,Dress_Hat,ドレスハット,4,20,,200,,3:7,,1,2074075135,2,256,,20,265,1,{},{}
@@ -9421,7 +9421,7 @@
 18649,Lude_Mask,ルードマスク,13,20,,100,,1,,,2074075135,2,513,,1,802,0,{},{}
 
 18651,Ignis_Cap,イグニスキャップ,4,20,,800,,8,,1,2074075135,2,256,,40,803,1,{},{ bonus bBaseAtk,10; bonus3 bAutoActiveWeapon,18651,100,7000; if(checkactiveitem()) { misceffect 220,""; bonus2 bIgnoreDefRace,Rct_NonBoss,100; } if(getequipid(9)==5421) bonus bAspdAddRate,getequiprefinerycnt()/2; }
-18652,Vanargand_Helm,ヴァナルガンドの兜,4,20,,1500,,10,,1,2074075135,2,256,,80,804,1,{},{ bonus2 bHPDrainRate,10*(5+1*(getequiprefinerycnt()>7)+2*(getequiprefinerycnt()>8)+2*(getequiprefinerycnt()>9)),1+2*(getequiprefinerycnt()>5)+2*(getequiprefinerycnt()>7)+3*(getequiprefinerycnt()>9); bonus2 bSPDrainRate,10*(5+1*(getequiprefinerycnt()>8)+2*(getequiprefinerycnt()>9)),1+(getequiprefinerycnt()>7)+2*(getequiprefinerycnt()>9); }
+18652,Vanargand_Helm,ヴァナルガンドの兜,4,20,,1500,,10,,1,2074075135,2,256,,80,804,1,{},{ if(getequipid(2)!=15145){ '@refine = getequiprefinerycnt(); if(equippeditem(29543)==0){ if( '@refine >= 9 ){ bonus2 bHPDrainRate,6,8; } else if( '@refine >= 8 ){ bonus2 bHPDrainRate,3,5; } else if( '@refine >= 7 ){ bonus2 bHPDrainRate,2,5; } else if( '@refine >= 5 ){ bonus2 bHPDrainRate,1,3; } } if(equippeditem(29544)==0){ if( '@refine >= 9 ){ bonus2 bSPDrainRate,3,4; } else if( '@refine >= 8 ){ bonus2 bSPDrainRate,2,2; } else if( '@refine >= 7 ){ bonus2 bSPDrainRate,1,2; } else if( '@refine >= 5 ){ bonus2 bSPDrainRate,1,1; } } } }
 18653,Deviruchi_Headphone,デビルチヘッドフォン,4,20,,200,,8:4,,1,2074075135,2,256,,30,805,1,{},{ bonus2 bResEff,Eff_Stun,3000; switch(getbaseclass(Class)) { case CLASS_MG: case CLASS_AC: case CLASS_AL: if(getpetinfo(1)==1109){ bonus2 bResEff,Eff_Stun,500; if(getpetinfo(3)>=900) bonus2 bResEff,Eff_Stun,1500; break; } } }
 18654,Secret_Society_Hood,秘密結社の頭巾,14,20,,200,,10:5,,1,2074075135,2,769,,20,806,0,{},{ bonus bMaxHP,500; bonus2 bResEff,Eff_Curse,10000; }
 18655,Goedo_Monocle,とんぼの片眼鏡,4,20,,100,,0,,0,2074075135,2,512,,50,807,0,{},{ bonus bAgi,2; bonus3 bAutoSpell,50,1,100; }
@@ -12548,7 +12548,7 @@
 
 29012,Unknown_Item,ハイレベル,3,,,0,,,,,,,,,,,,{},{}
 
-29042,Unknown_Item,エナジー<守護竜>,6,0,,,,,,,,2,65535,,1,,,{},{ bonus2 bSubEle,Ele_All,7; bonus bMaxSP,readparam(BaseLevel)/3; bonus bMaxSP,10*getequiprefinerycnt(5); if(!equippeditem(15145)) bonus2 bSPDrainRate,5,1; }
+29042,Unknown_Item,エナジー<守護竜>,6,,,0,,,,,,2,65535,,1,,,{},{ bonus2 bSubEle,Ele_All,7; bonus bMaxSP,readparam(BaseLevel)/3; bonus bMaxSP,10*getequiprefinerycnt(5); if(!equippeditem(15145) && !equippeditem(29544)) bonus2 bSPDrainRate,5,1; }
 29043,Unknown_Item,エナジー<戦乙女>,6,0,,,,,,,,2,65535,,1,,,{},{ switch(getbaseclass(Class)) { case CLASS_SM: case CLASS_MC: case CLASS_TF: bonus bShortWeaponDamageReturn,getequiprefinerycnt(5)*2+5; break; case CLASS_MG: case CLASS_AC: case CLASS_AL: bonus bFlee2,getequiprefinerycnt(5)*2+5; break; } }
 29044,Unknown_Item,エナジー<烈風>,6,0,,,,,,,,2,65535,,1,,,{},{ bonus bMaxHP,200; bonus bFlee,10; }
 29045,Unknown_Item,疾風,6,0,,,,,,,,2,65535,,1,,,{},{ bonus2 bAddRace,Rct_Fish,15; bonus2 bMagicAddRace,Rct_Fish,15; bonus2 bAddEle,Ele_Water,15; bonus2 bMagicAddEle,Ele_Water,15; bonus3 bAutoActiveWeapon,29045,1200,10000; if(equippeditem(29045)){ misceffect 221,""; bonus bAspdAddRate,70; bonus bCastrate,-70; bonus bSkillDelayRate,-70; } }
@@ -12643,11 +12643,11 @@
 29241,Unknown_Item,Cri + 10,6,0,,,,,,,,2,65535,,1,,,{},{ bonus bCritical,10; }
 29242,Unknown_Item,破壊不可(鎧),6,0,,,,,,,,2,65535,,1,,,{},{ bonus bUnbreakableArmor,0; }
 29243,Unknown_Item,詠唱妨害不可,6,0,,,,,,,,2,65535,,1,,,{},{ bonus bNoCastCancel,0; }
-29244,Unknown_Item,プレイヤー耐性1,6,0,,,,,,,,2,65535,,1,,,{},{}
-29245,Unknown_Item,プレイヤー耐性2,6,0,,,,,,,,2,65535,,1,,,{},{}
-29246,Unknown_Item,プレイヤー耐性3,6,0,,,,,,,,2,65535,,1,,,{},{}
-29247,Unknown_Item,プレイヤー耐性4,6,0,,,,,,,,2,65535,,1,,,{},{}
-29248,Unknown_Item,プレイヤー耐性5,6,0,,,,,,,,2,65535,,1,,,{},{}
+29244,Unknown_Item,プレイヤー耐性1,6,,,0,,,,,,2,65535,,1,,,{},{ bonus2 bSubRace,Rct_Player,1; }
+29245,Unknown_Item,プレイヤー耐性2,6,,,0,,,,,,2,65535,,1,,,{},{ bonus2 bSubRace,Rct_Player,2; }
+29246,Unknown_Item,プレイヤー耐性3,6,,,0,,,,,,2,65535,,1,,,{},{ bonus2 bSubRace,Rct_Player,3; }
+29247,Unknown_Item,プレイヤー耐性4,6,,,0,,,,,,2,65535,,1,,,{},{ bonus2 bSubRace,Rct_Player,4; }
+29248,Unknown_Item,プレイヤー耐性5,6,,,0,,,,,,2,65535,,1,,,{},{ bonus2 bSubRace,Rct_Player,5; }
 29249,Unknown_Item,安息のニーヴ(体力),6,,,0,,,,,,2,65535,,1,,,{},{ bonus bMaxHP,200; if(getequiprefinerycnt()>=6){ bonus bMaxHP,300; } if(getequiprefinerycnt()>=8){ bonus bMaxHP,500; } if(equippeditem(19185)){ bonus bMaxHP,5000; } }
 29250,Unknown_Item,安息のニーヴ(精神),6,,,0,,,,,,2,65535,,1,,,{},{ bonus bMaxSP,10; if(getequiprefinerycnt()>=6){ bonus bMaxSP,20; } if(getequiprefinerycnt()>=8){ bonus bMaxSP,50; } if(equippeditem(19185)){ bonus bMaxSP,100; } }
 29251,Unknown_Item,安息のニーヴ(生命),6,,,0,,,,,,2,65535,,1,,,{},{ bonus2 bHPPenaltyTime,5000,-50; if(getequiprefinerycnt()>=6){ bonus2 bHPPenaltyTime,5000,-50; } if(getequiprefinerycnt()>=8){ bonus2 bHPPenaltyTime,5000,-150; } if(equippeditem(19185)){ bonus2 bHPPenaltyTime,5000,-1000; } }
@@ -12690,38 +12690,38 @@
 29366,Unknown_Item,強撃1,6,0,,,,,,,,2,65535,,1,,,{},{ bonus2 bAddRace,Rct_Boss,2*getequiprefinerycnt(); bonus2 bAddRace,Rct_NonBoss,2*getequiprefinerycnt(); }
 29367,Unknown_Item,強撃2,6,0,,,,,,,,2,65535,,1,,,{},{ bonus2 bAddRace,Rct_Boss,4*getequiprefinerycnt(); bonus2 bAddRace,Rct_NonBoss,4*getequiprefinerycnt(); }
 29368,Unknown_Item,強撃3,6,0,,,,,,,,2,65535,,1,,,{},{ bonus2 bAddRace,Rct_Boss,6*getequiprefinerycnt(); bonus2 bAddRace,Rct_NonBoss,6*getequiprefinerycnt(); }
-29369,Unknown_Item,強撃4,3,,,0,,,,,,,,,,,,{},{}
-29370,Unknown_Item,強撃5,3,,,0,,,,,,,,,,,,{},{}
-29371,Unknown_Item,真理の解放,6,0,,,,,,,,2,65535,,1,,,{},{ bonus3 bAutoActiveMagic,29371,100,10000; if(checkactiveitem(29371)){ misceffect 220,""; active_montransform 1639; bonus bFlee2,100; bonus2 bMagicAddRace,Rct_Boss,100; } }
+29369,Unknown_Item,強撃4,6,,,0,,,,,,2,65535,,1,,,{},{ bonus2 bAddRace,Rct_Boss,8*getequiprefinerycnt(); bonus2 bAddRace,Rct_NonBoss,8*getequiprefinerycnt(); }
+29370,Unknown_Item,強撃5,6,,,0,,,,,,2,65535,,1,,,{},{ bonus2 bAddRace,Rct_Boss,10*getequiprefinerycnt(); bonus2 bAddRace,Rct_NonBoss,10*getequiprefinerycnt(); }
+29371,Unknown_Item,真理の解放,6,,,0,,,,,,2,65535,,1,,,{},{ bonus3 bAutoActiveMagic,29371,100,10000; if(checkactiveitem(29371)){ misceffect 220,""; active_montransform 1639; bonus bFlee2,100; bonus2 bMagicAddRace,Rct_Boss,100; } }
 29372,Unknown_Item,固定詠唱時間 - 50%,6,0,,,,,,,,2,65535,,1,,,{},{ bonus2 bFixCastrate,-50,0; }
 29373,Unknown_Item,スキルディレイ - 15%,6,0,,,,,,,,2,65535,,1,,,{},{ bonus bSkillDelayRate,-15; }
 29374,Unknown_Item,消費SP - 15%,6,0,,,,,,,,2,65535,,1,,,{},{ bonus bUseSPrate,-15; }
-29375,Unknown_Item,プレイヤー耐性6,6,0,,,,,,,,2,65535,,1,,,{},{}
-29376,Unknown_Item,プレイヤー耐性7,6,0,,,,,,,,2,65535,,1,,,{},{}
-29377,Unknown_Item,プレイヤー耐性8,6,0,,,,,,,,2,65535,,1,,,{},{}
-29378,Unknown_Item,プレイヤー耐性9,6,0,,,,,,,,2,65535,,1,,,{},{}
-29379,Unknown_Item,プレイヤー耐性10,6,0,,,,,,,,2,65535,,1,,,{},{}
+29375,Unknown_Item,プレイヤー耐性6,6,,,0,,,,,,2,65535,,1,,,{},{ bonus2 bSubRace,Rct_Player,6; }
+29376,Unknown_Item,プレイヤー耐性7,6,,,0,,,,,,2,65535,,1,,,{},{ bonus2 bSubRace,Rct_Player,7; }
+29377,Unknown_Item,プレイヤー耐性8,6,,,0,,,,,,2,65535,,1,,,{},{ bonus2 bSubRace,Rct_Player,8; }
+29378,Unknown_Item,プレイヤー耐性9,6,,,0,,,,,,2,65535,,1,,,{},{ bonus2 bSubRace,Rct_Player,9; }
+29379,Unknown_Item,プレイヤー耐性10,6,,,0,,,,,,2,65535,,1,,,{},{ bonus2 bSubRace,Rct_Player,10; }
 
-29382,Unknown_Item,名誉のニーヴ(命中),6,0,,,,,,,,2,65535,,1,,,{},{}
-29383,Unknown_Item,名誉のニーヴ(回避),6,0,,,,,,,,2,65535,,1,,,{},{}
-29384,Unknown_Item,名誉のニーヴ(幸運),6,0,,,,,,,,2,65535,,1,,,{},{}
-29385,Unknown_Item,死のニーヴ(技巧),6,0,,,,,,,,2,65535,,1,,,{},{}
-29386,Unknown_Item,死のニーヴ(幸運),6,0,,,,,,,,2,65535,,1,,,{},{}
+29382,Unknown_Item,名誉のニーヴ(命中),6,,,0,,,,,,2,65535,,1,,,{},{ '@refine=getequiprefinerycnt(); bonus bHit,20; if('@refine>=7){ bonus bHit,10; if('@refine>=9){ bonus bHit,10; } } if(getequipid(1)==19185){ bonus bHit,20; } }
+29383,Unknown_Item,名誉のニーヴ(回避),6,,,0,,,,,,2,65535,,1,,,{},{ '@refine=getequiprefinerycnt(); bonus bFlee,20; if('@refine>=7){ bonus bFlee,10; if('@refine>=9){ bonus bFlee,10; } } if(getequipid(1)==19185){ bonus bFlee,20; } }
+29384,Unknown_Item,名誉のニーヴ(幸運),6,,,0,,,,,,2,65535,,1,,,{},{ '@refine=getequiprefinerycnt(); bonus bFlee2,3; if('@refine>=7){ bonus bFlee2,2; if('@refine>=9){ bonus bFlee2,2; } } if(getequipid(1)==19185){ bonus bFlee2,5; } }
+29385,Unknown_Item,死のニーヴ(技巧),6,,,0,,,,,,2,65535,,1,,,{},{ '@refine=getequiprefinerycnt(); bonus bAddLongWeaponDamage,3; if('@refine>=7){ bonus bAddLongWeaponDamage,1; if('@refine>=9){ bonus bAddLongWeaponDamage,1; } } if(getequipid(1)==19185){ bonus bAddLongWeaponDamage,5; } }
+29386,Unknown_Item,死のニーヴ(幸運),6,,,0,,,,,,2,65535,,1,,,{},{ '@refine=getequiprefinerycnt(); bonus bAddCriticalDamage,3; if('@refine>=7){ bonus bAddCriticalDamage,1; if('@refine>=9){ bonus bAddCriticalDamage,1; } } if(getequipid(1)==19185){ bonus bAddCriticalDamage,5; } }
 
-29436,Unknown_Item,覇王,3,,,0,,,,,,,,,,,,{},{}
-29437,Unknown_Item,スキルディレイ - 8%,3,,,0,,,,,,,,,,,,{},{}
-29438,Unknown_Item,Z-Knockback,3,,,0,,,,,,,,,,,,{},{}
-29439,Unknown_Item,Z-Immortal,3,,,0,,,,,,,,,,,,{},{}
-29440,Unknown_Item,Z-Killgain,3,,,0,,,,,,,,,,,,{},{}
-29441,Unknown_Item,Z-Reincarnation,3,,,0,,,,,,,,,,,,{},{}
-29442,Unknown_Item,Z-NoDispell,3,,,0,,,,,,,,,,,,{},{}
-29443,Unknown_Item,Z-Clairvoyance,3,,,0,,,,,,,,,,,,{},{}
-29444,Unknown_Item,Z-CastFixed,3,,,0,,,,,,,,,,,,{},{}
-29445,Unknown_Item,増幅1,3,,,0,,,,,,,,,,,,{},{}
-29446,Unknown_Item,増幅2,3,,,0,,,,,,,,,,,,{},{}
-29447,Unknown_Item,増幅3,3,,,0,,,,,,,,,,,,{},{}
-29448,Unknown_Item,増幅4,3,,,0,,,,,,,,,,,,{},{}
-29449,Unknown_Item,増幅5,3,,,0,,,,,,,,,,,,{},{}
+29436,Unknown_Item,覇王,6,,,0,,,,,,2,65535,,1,,,{},{ bonus4 bAutoActiveItem,29436,100,5000,EAS_WEAPON; if(checkactiveitem()){ misceffect 220,""; active_montransform 2221; bonus bStr,200; } }
+29437,Unknown_Item,スキルディレイ - 8%,6,,,0,,,,,,2,65535,,1,,,{},{ bonus bSkillDelayRate,-8; }
+29438,Unknown_Item,Z-Knockback,6,,,0,,,,,,2,65535,,1,,,{},{ bonus bNoKnockback,0; if(getequipid(1)==5965){ bonus bMaxHPrate,getequiprefinerycnt(1)/2; } if(equippeditem(310192)){ bonus bMaxHPrate,5; } }
+29439,Unknown_Item,Z-Immortal,6,,,0,,,,,,2,65535,,1,,,{},{ bonus bUnbreakableArmor,0; if(getequipid(1)==5965){ bonus bMaxHPrate,getequiprefinerycnt(1)/2; } if(equippeditem(310192)){ bonus bMaxHPrate,5; } }
+29440,Unknown_Item,Z-Killgain,6,,,0,,,,,,2,65535,,1,,,{},{ '@refine = getequiprefinerycnt(); '@heal_amount = 2; if( '@refine >= 7 ){ '@heal_amount += 3; if( '@refine >= 8 ){ '@heal_amount += 5; if( '@refine >= 9 ){ '@heal_amount += 10; } } } bonus bSPGainValue,'@heal_amount; if(getequipid(1)==5965){ bonus bMaxHPrate,getequiprefinerycnt(1)/2; } if(equippeditem(310192)){ bonus bMaxHPrate,5; } }
+29441,Unknown_Item,Z-Reincarnation,6,,,0,,,,,,2,65535,,1,,,{},{ bonus bRestartFullRecover,0; if(getequipid(1)==5965){ bonus bMaxHPrate,getequiprefinerycnt(1)/2; } if(equippeditem(310192)){ bonus bMaxHPrate,5; } }
+29442,Unknown_Item,Z-NoDispell,6,,,0,,,,,,2,65535,,1,,,{},{ bonus bNoCastCancel,0; if(getequipid(1)==5965){ bonus bMaxHPrate,getequiprefinerycnt(1)/2; } if(equippeditem(310192)){ bonus bMaxHPrate,5; } }
+29443,Unknown_Item,Z-Clairvoyance,6,,,0,,,,,,2,65535,,1,,,{},{ bonus bTigereye,0; if(getequipid(1)==5965){ bonus bMaxHPrate,getequiprefinerycnt(1)/2; } if(equippeditem(310192)){ bonus bMaxHPrate,5; } }
+29444,Unknown_Item,Z-CastFixed,6,,,0,,,,,,2,65535,,1,,,{},{ bonus2 bFixCastrate,-50,1; if(getequipid(1)==5965){ bonus bMaxHPrate,getequiprefinerycnt(1)/2; } if(equippeditem(310192)){ bonus bMaxHPrate,5; } }
+29445,Unknown_Item,増幅1,6,,,0,,,,,,2,65535,,1,,,{},{ bonus2 bMagicAddRace,Rct_Boss,getequiprefinerycnt(); bonus2 bMagicAddRace,Rct_NonBoss,getequiprefinerycnt(); }
+29446,Unknown_Item,増幅2,6,,,0,,,,,,2,65535,,1,,,{},{ bonus2 bMagicAddRace,Rct_Boss,2*getequiprefinerycnt(); bonus2 bMagicAddRace,Rct_NonBoss,2*getequiprefinerycnt(); }
+29447,Unknown_Item,増幅3,6,,,0,,,,,,2,65535,,1,,,{},{ bonus2 bMagicAddRace,Rct_Boss,3*getequiprefinerycnt(); bonus2 bMagicAddRace,Rct_NonBoss,3*getequiprefinerycnt(); }
+29448,Unknown_Item,増幅4,6,,,0,,,,,,2,65535,,1,,,{},{ bonus2 bMagicAddRace,Rct_Boss,4*getequiprefinerycnt(); bonus2 bMagicAddRace,Rct_NonBoss,4*getequiprefinerycnt(); }
+29449,Unknown_Item,増幅5,6,,,0,,,,,,2,65535,,1,,,{},{ bonus2 bMagicAddRace,Rct_Boss,5*getequiprefinerycnt(); bonus2 bMagicAddRace,Rct_NonBoss,5*getequiprefinerycnt(); }
 29450,Unknown_Item,Lv1,3,,,0,,,,,,,,,,,,{},{}
 29451,Unknown_Item,Lv2,3,,,0,,,,,,,,,,,,{},{}
 29452,Unknown_Item,Lv3,3,,,0,,,,,,,,,,,,{},{}
@@ -12733,58 +12733,58 @@
 29458,Unknown_Item,Lv9,3,,,0,,,,,,,,,,,,{},{}
 29459,Unknown_Item,Lv10,3,,,0,,,,,,,,,,,,{},{}
 
-29472,Unknown_Item,<Overclock>,3,,,0,,,,,,,,,,,,{},{}
-29473,Unknown_Item,<超越者>,3,,,0,,,,,,,,,,,,{},{}
-29474,Unknown_Item,<剛腕>,3,,,0,,,,,,,,,,,,{},{}
-29475,Unknown_Item,<呪力>,3,,,0,,,,,,,,,,,,{},{}
-29476,Unknown_Item,<竜鱗>,3,,,0,,,,,,,,,,,,{},{}
+29472,Unknown_Item,<Overclock>,6,,,0,,,,,,2,65535,,1,,,{},{ bonus2 bAddRace,Rct_Boss,5; bonus2 bAddRace,Rct_NonBoss,5; bonus2 bMagicAddRace,Rct_Boss,5; bonus2 bMagicAddRace,Rct_NonBoss,5; bonus2 bSubEle,Ele_Fire,15; bonus2 bSubEle,Ele_Water,15; bonus2 bSubEle,Ele_Wind,15; bonus2 bSubEle,Ele_Earth,15; bonus2 bSubRace,Rct_Boss,10; skill 26,1; }
+29473,Unknown_Item,<超越者>,6,,,0,,,,,,2,65535,,1,,,{},{ bonus bMaxHPrate,20; bonus bMaxSPrate,20; bonus2 bAddRace,Rct_Human,5; bonus2 bMagicAddRace,Rct_Human,5; skill 277,1; }
+29474,Unknown_Item,<剛腕>,6,,,0,,,,,,2,65535,,1,,,{ /*発動エフェクト未設定*/ },{ bonus2 bAddRace,Rct_Boss,5; bonus2 bAddRace,Rct_NonBoss,5; bonus4 bAutoActiveItem,29474,100,5000,EAS_WEAPON; if(checkactiveitem()){ bonus bAtk,100; } }
+29475,Unknown_Item,<呪力>,6,,,0,,,,,,2,65535,,1,,,{},{ bonus bInt,10; bonus bCastrate,-10; }
+29476,Unknown_Item,<竜鱗>,6,,,0,,,,,,2,65535,,1,,,{},{ bonus2 bAddRace,Rct_Brute,15; bonus2 bAddRace,Rct_Insect,15; bonus2 bMagicAddRace,Rct_Brute,15; bonus2 bMagicAddRace,Rct_Insect,15; bonus bShortWeaponDamageReturn,10; bonus bNoCastCancel,0; bonus bNoKnockback,0; }
 
-29509,Unknown_Item,豪傑,3,,,0,,,,,,,,,,,,{},{}
-29510,Unknown_Item,傷のニーヴ(プレイヤー),3,,,0,,,,,,,,,,,,{},{}
-29511,Unknown_Item,Q-Player,3,,,0,,,,,,,,,,,,{},{}
-29512,Unknown_Item,強靭,3,,,0,,,,,,,,,,,,{},{}
+29509,Unknown_Item,豪傑,6,,,0,,,,,,2,65535,,1,,,{},{ bonus4 bAutoActiveItem,29509,100,10000,EAS_WEAPON; if(checkactiveitem()){ bonus bFlee2,100; bonus2 bAddRace,Rct_Boss,100; bonus2 bAddRace,Rct_NonBoss,100; } }
+29510,Unknown_Item,傷のニーヴ(プレイヤー),6,,,0,,,,,,2,65535,,1,,,{ /*ドラム形プレイヤーから受けるダメージ軽減未実装*/ },{ bonus2 bSubRace,Rct_Player,30; if(getequipid(1)==19185){ bonus2 bSubRace,Rct_Player,5; } }
+29511,Unknown_Item,Q-Player,6,,,0,,,,,,2,65535,,1,,,{},{ '@refine = getequiprefinerycnt(); bonus2 bSubRace,Rct_Player,1+'@refine/3; if(getequipid(1)==400047){ bonus2 bSubRace,Rct_Player,3+getequiprefinerycnt(1); } }
+29512,Unknown_Item,強靭,6,,,0,,,,,,2,65535,,1,,,{ /*ドラム形プレイヤーから受けるダメージ軽減未実装*/ },{ bonus bMaxHPrate,5; bonus bMaxSPrate,5; '@refine=getequiprefinerycnt(); if('@refine>=7){ bonus bDef,50; bonus bMdef,5; if('@refine>=9){ bonus bDef,50; bonus bMdef,5; } } }
 
-29527,Unknown_Item,B-Def,3,,,0,,,,,,,,,,,,{},{}
-29528,Unknown_Item,B-Mdef,3,,,0,,,,,,,,,,,,{},{}
-29529,Unknown_Item,B-HPR,3,,,0,,,,,,,,,,,,{},{}
-29530,Unknown_Item,B-MaxSP,3,,,0,,,,,,,,,,,,{},{}
-29531,Unknown_Item,B-MaxHP,3,,,0,,,,,,,,,,,,{},{}
-29532,Unknown_Item,B-SPR,3,,,0,,,,,,,,,,,,{},{}
-29533,Unknown_Item,Q-Heal,3,,,0,,,,,,,,,,,,{},{}
-29534,Unknown_Item,B-Atk,3,,,0,,,,,,,,,,,,{},{}
-29535,Unknown_Item,B-Matk,3,,,0,,,,,,,,,,,,{},{}
-29536,Unknown_Item,Q-Shooter,3,,,0,,,,,,,,,,,,{},{}
-29537,Unknown_Item,Q-Speed,3,,,0,,,,,,,,,,,,{},{}
-29538,Unknown_Item,Q-CastStat,3,,,0,,,,,,,,,,,,{},{}
-29539,Unknown_Item,Q-Fatal,3,,,0,,,,,,,,,,,,{},{}
-29540,Unknown_Item,Q-Delay,3,,,0,,,,,,,,,,,,{},{}
-29541,Unknown_Item,Q-CastFixed,3,,,0,,,,,,,,,,,,{},{}
-29542,Unknown_Item,Q-Attribute,3,,,0,,,,,,,,,,,,{},{}
-29543,Unknown_Item,G-DrainHP,3,,,0,,,,,,,,,,,,{},{}
-29544,Unknown_Item,G-DrainSP,3,,,0,,,,,,,,,,,,{},{}
-29545,Unknown_Item,G-Life,3,,,0,,,,,,,,,,,,{},{}
-29546,Unknown_Item,G-Soul,3,,,0,,,,,,,,,,,,{},{}
-29547,Unknown_Item,X-UnlimitVital,3,,,0,,,,,,,,,,,,{},{}
-29548,Unknown_Item,X-SpellBuster,3,,,0,,,,,,,,,,,,{},{}
-29549,Unknown_Item,X-FiringShot,3,,,0,,,,,,,,,,,,{},{}
-29550,Unknown_Item,X-OverPower,3,,,0,,,,,,,,,,,,{},{}
-29551,Unknown_Item,X-FatalFlash,3,,,0,,,,,,,,,,,,{},{}
-29552,Unknown_Item,X-LuckyStrike,3,,,0,,,,,,,,,,,,{},{}
+29527,Unknown_Item,B-Def,6,,,0,,,,,,2,65535,,1,,,{},{ '@refine = getequiprefinerycnt(); bonus bDef,10; if( '@refine >= 6 ){ bonus bDef,20; if( '@refine >= 8 ){ bonus bDef,60; } } if(getequipid(1)==400047){ bonus bDef,500; } }
+29528,Unknown_Item,B-Mdef,6,,,0,,,,,,2,65535,,1,,,{},{ '@refine = getequiprefinerycnt(); bonus bMdef,1; if( '@refine >= 6 ){ bonus bMdef,2; if( '@refine >= 8 ){ bonus bMdef,4; } } if(getequipid(1)==400047){ bonus bMdef,20; } }
+29529,Unknown_Item,B-HPR,6,,,0,,,,,,2,65535,,1,,,{},{ '@refine = getequiprefinerycnt(); bonus bHPrecovRate,40; if( '@refine >= 6 ){ bonus bHPrecovRate,60; if( '@refine >= 8 ){ bonus bHPrecovRate,200; } } if(getequipid(1)==400047){ bonus bHPrecovRate,350; } }
+29530,Unknown_Item,B-MaxSP,6,,,0,,,,,,2,65535,,1,,,{},{ '@refine = getequiprefinerycnt(); bonus bMaxSP,40; if( '@refine >= 6 ){ bonus bMaxSP,60; if( '@refine >= 8 ){ bonus bMaxSP,200; } } if(getequipid(1)==400047){ bonus bMaxSP,150; } }
+29531,Unknown_Item,B-MaxHP,6,,,0,,,,,,2,65535,,1,,,{},{ '@refine = getequiprefinerycnt(); bonus bMaxHP,400; if( '@refine >= 6 ){ bonus bMaxHP,600; if( '@refine >= 8 ){ bonus bMaxHP,2000; } } if(getequipid(1)==400047){ bonus bMaxHP,7500; } }
+29532,Unknown_Item,B-SPR,6,,,0,,,,,,2,65535,,1,,,{},{ '@refine = getequiprefinerycnt(); bonus bSPrecovRate,4; if( '@refine >= 6 ){ bonus bSPrecovRate,6; if( '@refine >= 8 ){ bonus bSPrecovRate,20; } } if(getequipid(1)==400047){ bonus bSPrecovRate,50; } }
+29533,Unknown_Item,Q-Heal,6,,,0,,,,,,2,65535,,1,,,{},{ '@refine = getequiprefinerycnt(); callfunc "ItemdbAlmightyHeal",0x7F,4; if( '@refine >= 6 ){ callfunc "ItemdbAlmightyHeal",0x7F,6; if( '@refine >= 8 ){ callfunc "ItemdbAlmightyHeal",0x7F,10; } } if(getequipid(1)==400047){ bonus bInt,10; } }
+29534,Unknown_Item,B-Atk,6,,,0,,,,,,2,65535,,1,,,{},{ '@refine = getequiprefinerycnt(); bonus bAtk,6; if( '@refine >= 6 ){ bonus bAtk,8; if( '@refine >= 8 ){ bonus bAtk,16; } } if(getequipid(1)==400047){ bonus bAtk,15; } }
+29535,Unknown_Item,B-Matk,6,,,0,,,,,,2,65535,,1,,,{},{ '@refine = getequiprefinerycnt(); bonus bMatk,6; if( '@refine >= 6 ){ bonus bMatk,8; if( '@refine >= 8 ){ bonus bMatk,16; } } if(getequipid(1)==400047){ bonus bMatk,15; } }
+29536,Unknown_Item,Q-Shooter,6,,,0,,,,,,2,65535,,1,,,{},{ '@refine = getequiprefinerycnt(); bonus bAddLongWeaponDamage,2; if( '@refine >= 6 ){ bonus bAddLongWeaponDamage,3; if( '@refine >= 8 ){ bonus bAddLongWeaponDamage,5; } } if(getequipid(1)==400047){ bonus bDex,10; } }
+29537,Unknown_Item,Q-Speed,6,,,0,,,,,,2,65535,,1,,,{},{ '@refine = getequiprefinerycnt(); bonus bAspdRate,2; if( '@refine >= 6 ){ bonus bAspdRate,3; if( '@refine >= 8 ){ bonus bAspdRate,5; } } if(getequipid(1)==400047){ bonus bAgi,10; } }
+29538,Unknown_Item,Q-CastStat,6,,,0,,,,,,2,65535,,1,,,{},{ '@refine = getequiprefinerycnt(); bonus bCastrate,-2; if( '@refine >= 6 ){ bonus bCastrate,-3; if( '@refine >= 8 ){ bonus bCastrate,-5; } } if(getequipid(1)==400047){ bonus bVit,10; } }
+29539,Unknown_Item,Q-Fatal,6,,,0,,,,,,2,65535,,1,,,{},{ '@refine = getequiprefinerycnt(); bonus bAddCriticalDamage,5; if( '@refine >= 6 ){ bonus bAddCriticalDamage,10; if( '@refine >= 8 ){ bonus bAddCriticalDamage,15; } } if(getequipid(1)==400047){ bonus bLuk,10; } }
+29540,Unknown_Item,Q-Delay,6,,,0,,,,,,2,65535,,1,,,{},{ '@refine = getequiprefinerycnt(); bonus bSkillDelayRate,-2; if( '@refine >= 6 ){ bonus bSkillDelayRate,-3; if( '@refine >= 8 ){ bonus bSkillDelayRate,-5; } } if(getequipid(1)==400047){ bonus bStr,10; } }
+29541,Unknown_Item,Q-CastFixed,6,,,0,,,,,,2,65535,,1,,,{},{ '@refine = getequiprefinerycnt(); bonus2 bFixCastrate,-20,1; if( '@refine >= 6 ){ bonus2 bFixCastrate,-20,1; if( '@refine >= 8 ){ bonus2 bFixCastrate,-20,1; } } if(getequipid(1)==400047){ bonus bSpeedRate,25; } }
+29542,Unknown_Item,Q-Attribute,6,,,0,,,,,,2,65535,,1,,,{},{ setarray '@all_ele,Ele_Neutral,Ele_Water,Ele_Earth,Ele_Fire,Ele_Wind,Ele_Poison,Ele_Holy,Ele_Dark,Ele_Ghost,Ele_Undead; '@value = 1; if( '@refine >= 6 ){ '@value += 2; if( '@refine >= 8 ){ '@value += 2; } } for( '@i=0; '@i<getarraysize('@all_ele); '@i++ ){ bonus2 bSubEle,'@all_ele['@i],'@value; } if(getequipid(1)==400047){ for( '@i=0; '@i<getarraysize('@all_ele); '@i++ ){ bonus2 bAddEle,'@all_ele['@i],5; bonus2 bMagicAddEle,'@all_ele['@i],5; } } }
+29543,Unknown_Item,G-DrainHP,6,,,0,,,,,,2,65535,,1,,,{},{ '@refine = getequiprefinerycnt(); if( '@refine == 8 ){ bonus2 bHPDrainRate,1,3; } else if( '@refine == 9 ){ bonus2 bHPDrainRate,2,4; } else if( '@refine >= 10 ){ bonus2 bHPDrainRate,3,6; } if(getequipid(1)==400047){ bonus bUnbreakableArmor,0; } }
+29544,Unknown_Item,G-DrainSP,6,,,0,,,,,,2,65535,,1,,,{},{ '@refine = getequiprefinerycnt(); if( '@refine == 8 ){ bonus2 bSPDrainRate,1,2; } else if( '@refine == 9 ){ bonus2 bSPDrainRate,2,3; } else if( '@refine >= 10 ){ bonus2 bSPDrainRate,3,5; } if(getequipid(1)==400047){ bonus bUnbreakableArmor,0; } }
+29545,Unknown_Item,G-Life,6,,,0,,,,,,2,65535,,1,,,{},{ '@refine = getequiprefinerycnt(); '@heal_amount = 100; if( '@refine >= 7 ){ '@heal_amount += 150; if( '@refine >= 9 ){ '@heal_amount += 200; if( '@refine >= 10 ){ '@heal_amount += 250; } } } if(getequipid(1)==400047){ '@heal_amount +=1500; } if('@heal_amount){ bonus2 bHPPenaltyTime,5000,-'@heal_amount; } }
+29546,Unknown_Item,G-Soul,6,,,0,,,,,,2,65535,,1,,,{},{ '@refine = getequiprefinerycnt(); '@heal_amount = 5; if( '@refine >= 7 ){ '@heal_amount += 10; if( '@refine >= 9 ){ '@heal_amount += 20; if( '@refine >= 10 ){ '@heal_amount += 30; } } } if(getequipid(1)==400047){ '@heal_amount +=25; } if('@heal_amount){ bonus2 bSPPenaltyTime,5000,-'@heal_amount; } }
+29547,Unknown_Item,X-UnlimitVital,6,,,0,,,,,,2,65535,,1,,,{},{ '@refine = getequiprefinerycnt(); '@active_bonus = '@refine > 4 ? '@refine : 4; bonus4 bAutoActiveItem,29547,('@active_bonus-4)*20+80,('@active_bonus-4)*3000 + 4000,EAS_WEAPON|EAS_MAGIC; if(checkactiveitem()){ bonus bVit,50; if('@refine>=10){ bonus bVit,50; } } if(getequipid(1)==400047){ bonus bCastrate,-20; } }
+29548,Unknown_Item,X-SpellBuster,6,,,0,,,,,,2,65535,,1,,,{},{ '@refine = getequiprefinerycnt(); '@active_bonus = '@refine > 4 ? '@refine : 4; bonus4 bAutoActiveItem,29548,('@active_bonus-4)*20+80,('@active_bonus-4)*3000 + 4000,EAS_WEAPON|EAS_MAGIC; if(checkactiveitem()){ bonus bInt,50; if('@refine>=10){ bonus bInt,50; } } if(getequipid(1)==400047){ bonus bMaxSPrate,20; } }
+29549,Unknown_Item,X-FiringShot,6,,,0,,,,,,2,65535,,1,,,{},{ '@refine = getequiprefinerycnt(); '@active_bonus = '@refine > 4 ? '@refine : 4; bonus4 bAutoActiveItem,29549,('@active_bonus-4)*20+80,('@active_bonus-4)*3000 + 4000,EAS_WEAPON|EAS_MAGIC; if(checkactiveitem()){ bonus bDex,50; if('@refine>=10){ bonus bDex,50; } } if(getequipid(1)==400047){ bonus bPerfectHitAddRate,20; } }
+29550,Unknown_Item,X-OverPower,6,,,0,,,,,,2,65535,,1,,,{},{ '@refine = getequiprefinerycnt(); '@active_bonus = '@refine > 4 ? '@refine : 4; bonus4 bAutoActiveItem,29550,('@active_bonus-4)*20+80,('@active_bonus-4)*3000 + 4000,EAS_WEAPON|EAS_MAGIC; if(checkactiveitem()){ bonus bStr,50; if('@refine>=10){ bonus bStr,50; } } if(getequipid(1)==400047){ bonus bMaxHPrate,20; } }
+29551,Unknown_Item,X-FatalFlash,6,,,0,,,,,,2,65535,,1,,,{},{ '@refine = getequiprefinerycnt(); '@active_bonus = '@refine > 4 ? '@refine : 4; bonus4 bAutoActiveItem,29551,('@active_bonus-4)*20+80,('@active_bonus-4)*3000 + 4000,EAS_WEAPON|EAS_MAGIC; if(checkactiveitem()){ bonus bAgi,50; if('@refine>=10){ bonus bAgi,50; } } if(getequipid(1)==400047){ bonus bSkillDelayRate,-20; } }
+29552,Unknown_Item,X-LuckyStrike,6,,,0,,,,,,2,65535,,1,,,{},{ '@refine = getequiprefinerycnt(); '@active_bonus = '@refine > 4 ? '@refine : 4; bonus4 bAutoActiveItem,29552,('@active_bonus-4)*20+80,('@active_bonus-4)*3000 + 4000,EAS_WEAPON|EAS_MAGIC; if(checkactiveitem()){ bonus bLuk,50; if('@refine>=10){ bonus bLuk,50; } } if(getequipid(1)==400047){ bonus bFlee2,20; } }
 
-29585,Unknown_Item,アルカナ,3,,,0,,,,,,,,,,,,{},{}
-29586,Unknown_Item,プレイヤー耐性12,3,,,0,,,,,,,,,,,,{},{}
+29585,Unknown_Item,アルカナ,6,,,0,,,,,,2,65535,,1,,,{},{}
+29586,Unknown_Item,プレイヤー耐性12,6,,,0,,,,,,2,65535,,1,,,{},{ bonus2 bSubRace,Rct_Player,12; }
 
-29593,Unknown_Item,凍結耐性,3,,,0,,,,,,,,,,,,{},{}
+29593,Unknown_Item,凍結耐性,6,,,0,,,,,,2,65535,,1,,,{},{ bonus2 bResEff,Eff_Freeze,10000; }
 
 29608,Unknown_Item,アリエス,6,,,10,,,,,,,256,,,,,{},{}
 29609,Unknown_Item,カプリコーン,6,,,10,,,,,,,256,,,,,{},{}
 29610,Unknown_Item,パイシーズ,6,,,10,,,,,,,256,,,,,{},{}
 
-29646,Unknown_Item,<超弩級>,3,,,0,,,,,,,,,,,,{},{}
-29647,Unknown_Item,<反逆者>,3,,,0,,,,,,,,,,,,{},{}
-29648,Unknown_Item,<火雷大神>,3,,,0,,,,,,,,,,,,{},{}
-29649,Unknown_Item,Def50%無視,3,,,0,,,,,,,,,,,,{},{}
-29650,Unknown_Item,Mdef50%無視,3,,,0,,,,,,,,,,,,{},{}
+29646,Unknown_Item,<超弩級>,6,,,0,,,,,,2,65535,,1,,,{},{ bonus2 bAddRace,Rct_Human,15; bonus2 bSubRace,Rct_Boss,5; if(readparam(bStr)>=125){ bonus2 bAddSize,Size_Big,30; } }
+29647,Unknown_Item,<反逆者>,6,,,0,,,,,,2,65535,,1,,,{},{ if(readparam(bStr)>=110){ bonus2 bAddSkillCoolDown,2570,-10000; } '@agi=readparam(bAgi); if('@agi>=110){ bonus2 bAddSkillDamageRate,2565,'@agi/5*30; } if(readparam(bInt)>=110){ bonus2 bAddSkillCoolDown,2571,-20000; } '@luk=readparam(bLuk); if('@luk>=110){ bonus2 bAddSkillDamageRate,2566,'@luk/5*30; } }
+29648,Unknown_Item,<火雷大神>,6,,,0,,,,,,2,65535,,1,,,{},{ bonus bStr,10; bonus bAgi,10; bonus bVit,10; bonus bInt,10; bonus bDex,10; bonus bLuk,10; bonus3 bAutoSpell,111,2,100; if(readparam(bLuk)>=125){ bonus4 bAutoActiveItem,29648,100,5000,EAS_WEAPON; if(checkactiveitem()){ bonus bDex,100; } } }
+29649,Unknown_Item,Def50%無視,6,,,0,,,,,,2,65535,,1,,,{},{ bonus2 bIgnoreDefRace,Rct_Boss,50; bonus2 bIgnoreDefRace,Rct_NonBoss,50; }
+29650,Unknown_Item,Mdef50%無視,6,,,0,,,,,,2,65535,,1,,,{},{ bonus2 bIgnoreMdefRace,Rct_Boss,50; bonus2 bIgnoreMdefRace,Rct_NonBoss,50; }
 
 29690,Unknown_Item,火属性付与(武器),3,,,0,,,,,,,,,,,,{},{}
 29691,Unknown_Item,水属性付与(武器),3,,,0,,,,,,,,,,,,{},{}
@@ -13696,32 +13696,32 @@
 300138,Unknown_Item,半龍王女メアカード,6,,,10,,,,,,,256,,,,,{},{}
 300139,Unknown_Item,封印された月夜花カード,6,,,10,,,,,,,64,,,,,{},{}
 
-310012,Unknown_Item,死の欲動,3,,,0,,,,,,,,,,,,{},{}
+310012,Unknown_Item,死の欲動,6,,,0,,,,,,2,65535,,1,,,{},{ bonus4 bAutoActiveItem,310012,100,10000,EAS_WEAPON; if(checkactiveitem()){ misceffect 220,""; active_montransform 1635; bonus bFlee,150; bonus bSkillDelayRate,-100; } }
 
-310075,Unknown_Item,グリード詠唱 - 100%,3,,,0,,,,,,,,,,,,{},{}
+310075,Unknown_Item,グリード詠唱 - 100%,6,,,0,,,,,,2,65535,,1,,,{},{ bonus2 bAddCastRate,1013,-100; }
 
-310192,Unknown_Item,<Extreme>,3,,,0,,,,,,,,,,,,{},{}
-310193,Unknown_Item,ノックバック無効,3,,,0,,,,,,,,,,,,{},{}
-310194,Unknown_Item,Def + 50,3,,,0,,,,,,,,,,,,{},{}
-310195,Unknown_Item,マグニフィカートLv5,3,,,0,,,,,,,,,,,,{},{}
-310196,Unknown_Item,遠距離物理耐性 + 10%,3,,,0,,,,,,,,,,,,{},{}
+310192,Unknown_Item,<Extreme>,6,,,0,,,,,,2,65535,,1,,,{ /*ホワイトインプリズン耐性は未対応*/ },{ bonus bPerfectHitAddRate,20; bonus4 bAutoActiveItem,310192,100,5000,EAS_WEAPON; if(checkactiveitem()){ misceffect 220,""; active_montransform 2221; bonus bDex,100; } }
+310193,Unknown_Item,ノックバック無効,6,,,0,,,,,,2,65535,,1,,,{},{ bonus bNoKnockback,0; }
+310194,Unknown_Item,Def + 50,6,,,0,,,,,,2,65535,,1,,,{},{ bonus bDef,50; }
+310195,Unknown_Item,マグニフィカートLv5,6,,,0,,,,,,2,65535,,1,,,{},{ skill 74,5; }
+310196,Unknown_Item,遠距離物理耐性 + 10%,6,,,0,,,,,,2,65535,,1,,,{},{ bonus bLongAtkDef,10; }
 
-310269,Unknown_Item,石化耐性,3,,,0,,,,,,,,,,,,{},{}
-310270,Unknown_Item,T-PowerBoost,3,,,0,,,,,,,,,,,,{},{}
-310271,Unknown_Item,T-MagicBoost,3,,,0,,,,,,,,,,,,{},{}
-310272,Unknown_Item,T-Assault,3,,,0,,,,,,,,,,,,{},{}
-310273,Unknown_Item,T-Electricity,3,,,0,,,,,,,,,,,,{},{}
+310269,Unknown_Item,石化耐性,6,,,0,,,,,,2,65535,,1,,,{},{ bonus2 bResEff,Eff_Stone,10000; }
+310270,Unknown_Item,T-PowerBoost,6,,,0,,,,,,2,65535,,1,,,{},{ '@refine = getequiprefinerycnt(); bonus bAtk,50; if( '@refine == 7 ){ bonus4 bAutoActiveItem,310270,80,3000,EAS_WEAPON; } else if( '@refine == 8 ){ bonus4 bAutoActiveItem,310270,120,4000,EAS_WEAPON; } if( '@refine >= 9 ){ bonus4 bAutoActiveItem,310270,200,5000,EAS_WEAPON; } if(checkactiveitem()){ bonus bAtk,100; } if(getequipid(1)==400047){ bonus bAtk,10*getequiprefinerycnt(1); } }
+310271,Unknown_Item,T-MagicBoost,6,,,0,,,,,,2,65535,,1,,,{},{ '@refine = getequiprefinerycnt(); bonus bMatk,50; if( '@refine == 7 ){ bonus4 bAutoActiveItem,310271,80,3000,EAS_WEAPON; } else if( '@refine == 8 ){ bonus4 bAutoActiveItem,310271,120,4000,EAS_WEAPON; } if( '@refine >= 9 ){ bonus4 bAutoActiveItem,310271,200,5000,EAS_WEAPON; } if(checkactiveitem()){ bonus bMatk,100; } if(getequipid(1)==400047){ bonus Matk,10*getequiprefinerycnt(1); } }
+310272,Unknown_Item,T-Assault,6,,,0,,,,,,2,65535,,1,,,{},{ '@refine = getequiprefinerycnt(); bonus bAddCriticalDamage,10; if( '@refine == 7 ){ bonus4 bAutoActiveItem,310272,80,3000,EAS_WEAPON; } else if( '@refine == 8 ){ bonus4 bAutoActiveItem,310272,120,4000,EAS_WEAPON; } if( '@refine >= 9 ){ bonus4 bAutoActiveItem,310272,200,5000,EAS_WEAPON; } if(checkactiveitem()){ bonus bAddCriticalDamage,40; } if(getequipid(1)==400047){ bonus bCritical,3*getequiprefinerycnt(1); } }
+310273,Unknown_Item,T-Electricity,6,,,0,,,,,,2,65535,,1,,,{},{ '@refine = getequiprefinerycnt(); bonus3 bAutoSpell,21,6,200; if( '@refine == 7 ){ bonus4 bAutoActiveItem,310273,80,3000,EAS_WEAPON; } else if( '@refine == 8 ){ bonus4 bAutoActiveItem,310273,120,4000,EAS_WEAPON; } if( '@refine >= 9 ){ bonus4 bAutoActiveItem,310273,200,5000,EAS_WEAPON; } if(checkactiveitem()){ bonus3 bAutoSpell,2454,3,500; } if(getequipid(1)==400047){ bonus2 bAddEleMagicDamageRate,Ele_Wind,3*getequiprefinerycnt(1); } }
 
-310310,Unknown_Item,潜在解放(ルーンナイト),3,,,0,,,,,,,,,,,,{},{}
-310311,Unknown_Item,潜在解放(ロイヤルガード),3,,,0,,,,,,,,,,,,{},{}
-310312,Unknown_Item,潜在解放(ソーサラー),3,,,0,,,,,,,,,,,,{},{}
-310313,Unknown_Item,潜在解放(アークビショップ),3,,,0,,,,,,,,,,,,{},{}
-310314,Unknown_Item,潜在解放(修羅),3,,,0,,,,,,,,,,,,{},{}
-310315,Unknown_Item,潜在解放(シャドウチェイサー),3,,,0,,,,,,,,,,,,{},{}
-310316,Unknown_Item,潜在解放(メカニック),3,,,0,,,,,,,,,,,,{},{}
-310317,Unknown_Item,潜在解放(ジェネティック),3,,,0,,,,,,,,,,,,{},{}
-310318,Unknown_Item,必中攻撃 + 25%,3,,,0,,,,,,,,,,,,{},{}
-310319,Unknown_Item,Hit + 100,3,,,0,,,,,,,,,,,,{},{}
+310310,Unknown_Item,潜在解放(ルーンナイト),6,,,0,,,,,,2,65535,,1,,,{},{ bonus2 bSubRace,Rct_Player,12; bonus bRestartFullRecover,0; bonus2 bSubRace,Rct_Boss,20; }
+310311,Unknown_Item,潜在解放(ロイヤルガード),6,,,0,,,,,,2,65535,,1,,,{},{ bonus2 bSubRace,Rct_Player,12; bonus bRestartFullRecover,0; bonus2 bAddRace,Rct_Boss,50; }
+310312,Unknown_Item,潜在解放(ソーサラー),6,,,0,,,,,,2,65535,,1,,,{},{ bonus2 bSubRace,Rct_Player,12; bonus bRestartFullRecover,0; bonus2 bAddSkillCoolDown,2454,-1000; bonus2 bAddSkillDamageRate,2454,50; }
+310313,Unknown_Item,潜在解放(アークビショップ),6,,,0,,,,,,2,65535,,1,,,{},{ bonus2 bSubRace,Rct_Player,12; bonus bRestartFullRecover,0; bonus4 bAutoActiveSkill,2046,310313,10000,30000; if(checkactiveitem()){ bonus2 bResEff,Eff_Sleep,10000; bonus2 bResEff,Eff_Stun,10000; bonus2 bResEff,Eff_Stone,10000; } }
+310314,Unknown_Item,潜在解放(修羅),6,,,0,,,,,,2,65535,,1,,,{},{ bonus2 bSubRace,Rct_Player,12; bonus bRestartFullRecover,0; bonus bPerfectHitAddRate,20; }
+310315,Unknown_Item,潜在解放(シャドウチェイサー),6,,,0,,,,,,2,65535,,1,,,{},{ bonus2 bSubRace,Rct_Player,12; bonus bRestartFullRecover,0; bonus2 bAddSkillCoolDown,5010,-1500; }
+310316,Unknown_Item,潜在解放(メカニック),6,,,0,,,,,,2,65535,,1,,,{},{ bonus2 bSubRace,Rct_Player,12; bonus bRestartFullRecover,0; bonus bInfiniteEndure,0; }
+310317,Unknown_Item,潜在解放(ジェネティック),6,,,0,,,,,,2,65535,,1,,,{},{ bonus2 bSubRace,Rct_Player,12; bonus bRestartFullRecover,0; bonus2 bAddSkillDamageRate,490,50; bonus2 bAddSkillDamageRate,2483,50; }
+310318,Unknown_Item,必中攻撃 + 25%,6,,,0,,,,,,2,65535,,1,,,{},{ bonus bPerfectHitAddRate,25; }
+310319,Unknown_Item,Hit + 100,6,,,0,,,,,,2,65535,,1,,,{},{ bonus bHit,100; }
 
 400012,Unknown_Item,黎明のマジェスティックゴート,4,,,100,,,,,2074075135,,256,,1,513,1,{},{}
 400013,Unknown_Item,くわえたチョコスティック,4,,,100,,,,,2074075135,,1,,100,884,,{},{}
