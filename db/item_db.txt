@@ -10821,10 +10821,10 @@
 
 20527,Unknown_Item,[衣装] フェアリーウィング(赤),4,,,0,,,,,2074075135,,4,,1,,,{},{}
 
-20532,Unknown_Item,[衣装] 紅焔の爆裂波動(肩にかける物),4,,,0,,,,,2074075135,,8192,,1,,,{/*要確認*/},{ hateffect HAT_EF_BAKURETSU_HADOU,TRUE; },{ hateffect HAT_EF_BAKURETSU_HADOU,FALSE; }
+20532,Unknown_Item,[衣装] 紅焔の爆裂波動(肩にかける物),4,,,0,,,,,2074075135,,8192,,1,,,{},{ hateffect HAT_EF_BAKURETSU_HADOU,TRUE; },{ hateffect HAT_EF_BAKURETSU_HADOU,FALSE; }
 
 20534,Unknown_Item,[衣装] 大きな白猫,4,,,0,,,,,2074075135,,8192,,1,,,{},{}
-20535,Unknown_Item,[衣装] デジタル空間,4,,,0,,,,,2074075135,,8192,,1,,,{/*要確認*/},{ hateffect HAT_EF_DIGITAL_SPACE,TRUE; },{ hateffect HAT_EF_DIGITAL_SPACE,FALSE; }
+20535,Unknown_Item,[衣装] デジタル空間,4,,,0,,,,,2074075135,,8192,,1,,,{},{ hateffect HAT_EF_DIGITAL_SPACE,TRUE; },{ hateffect HAT_EF_DIGITAL_SPACE,FALSE; }
 
 20537,Unknown_Item,[衣装] 舞い落ちる赤い紅葉,4,,,0,,,,,2074075135,,8192,,1,,,{},{ hateffect HAT_EF_C_MAPLE_WHICH_FALLS_RD,TRUE; },{ hateffect HAT_EF_C_MAPLE_WHICH_FALLS_RD,FALSE; }
 20538,Unknown_Item,[衣装] 虹色の魔法陣,4,,,0,,,,,2074075135,,8192,,1,,,{},{ hateffect HAT_EF_MAGICCIRCLERAINBOW,TRUE; },{ hateffect HAT_EF_MAGICCIRCLERAINBOW,FALSE; }
@@ -12882,7 +12882,7 @@
 31086,Unknown_Item,[衣装] ロングポニー(紫),4,0,,0,0,0,0,0,2074075135,2,4096,0,1,1526,0,{},{}
 31087,Unknown_Item,[衣装] ドワーフのひげ,4,,,0,,,,,2074075135,,1,,1,1349,,{},{}
 31088,Unknown_Item,[衣装] マッドハッター,4,0,,0,0,0,0,0,2074075135,2,5120,0,1,1421,0,{},{}
-31089,Costume_Exploding_Wave,[衣装] 紅焔の爆裂波動,4,0,,0,0,0,0,0,2074075135,2,2048,0,1,0,0,{/*要確認*/},{ hateffect HAT_EF_BAKURETSU_HADOU,TRUE; },{ hateffect HAT_EF_BAKURETSU_HADOU,FALSE; }
+31089,Costume_Exploding_Wave,[衣装] 紅焔の爆裂波動,4,0,,0,0,0,0,0,2074075135,2,2048,0,1,0,0,{},{ hateffect HAT_EF_BAKURETSU_HADOU,TRUE; },{ hateffect HAT_EF_BAKURETSU_HADOU,FALSE; }
 31090,Costume_Flapping_Angeling,[衣装] エンジェリング帽,4,0,,0,0,0,0,0,2074075135,2,1024,0,1,348,0,{},{}
 
 31092,Unknown_Item,[衣装] ウサギ耳の花帽子,4,,,0,,0,,,2074075135,,256,,1,845,,{},{}
