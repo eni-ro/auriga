@@ -13041,7 +13041,7 @@ void clif_skill_produce_mix_list(struct map_session_data *sd, int trigger, int s
 		}
 	}
 	WFIFOW(fd, 2)=c*8+4;
-#else
+#elif PACKETVER < 20181017
 	for(i=0,c=0;i<MAX_SKILL_PRODUCE_DB;i++){
 		if( skill_can_produce_mix(sd,i,trigger) ){
 			if((view = itemdb_viewid(skill_produce_db[i].nameid)) > 0)
@@ -13054,6 +13054,20 @@ void clif_skill_produce_mix_list(struct map_session_data *sd, int trigger, int s
 		}
 	}
 	WFIFOW(fd, 2)=c*10+4;
+#else
+	for(i=0,c=0;i<MAX_SKILL_PRODUCE_DB;i++){
+		if( skill_can_produce_mix(sd,i,trigger) ){
+			int j;
+			if((view = itemdb_viewid(skill_produce_db[i].nameid)) > 0)
+				WFIFOL(fd,c*16 + 4)= view;
+			else
+				WFIFOL(fd,c*16 + 4)= skill_produce_db[i].nameid;
+			for( j = 0; j < 3; j++ )
+				WFIFOL(fd,c*16 + j * 4 + 8)= skill_produce_db[i].mat_id[j];
+			c++;
+		}
+	}
+	WFIFOW(fd, 2)=c*16+4;
 #endif
 	WFIFOSET(fd,WFIFOW(fd,2));
 
@@ -22692,11 +22706,11 @@ static void clif_parse_NpcBuyListSend(int fd,struct map_session_data *sd, int cm
 	if(sd->npc_id != 0 || sd->state.store || sd->state.deal_mode != 0 || sd->status.manner < 0 || sd->state.mail_appending)
 		return;
 
-	n = (RFIFOW(fd,GETPACKETPOS(cmd,0)) - 4) /4;
+	n = (RFIFOW(fd,GETPACKETPOS(cmd,0)) - 4) /sizeof(struct CZ_PURCHASE_ITEM);
 	if (n <= 0) // max is checked in npc_buylist function
 		return;
 
-	fail = npc_buylist(sd, n, (unsigned short*)RFIFOP(fd,GETPACKETPOS(cmd,1))); // item_list
+	fail = npc_buylist(sd, n, (struct CZ_PURCHASE_ITEM*)RFIFOP(fd,GETPACKETPOS(cmd,1))); // item_list
 
 	sd->npc_shopid = 0;
 
@@ -22819,8 +22833,8 @@ static void clif_parse_NpcPointShopBuy(int fd,struct map_session_data *sd, int c
 		int len    = RFIFOW(fd,GETPACKETPOS(cmd,0)) - 10;
 		//int points = RFIFOL(fd,GETPACKETPOS(cmd,1));
 		int count  = RFIFOW(fd,GETPACKETPOS(cmd,2));
-		const unsigned short *item_list = (const unsigned short *)RFIFOP(fd,GETPACKETPOS(cmd,3));
-		fail = npc_pointshop_buylist(sd,( len <= 0 ) ? 0 : len/4,count,item_list);
+		const struct CZ_PURCHASE_ITEM *item_list = (const struct CZ_PURCHASE_ITEM *)RFIFOP(fd,GETPACKETPOS(cmd,3));
+		fail = npc_pointshop_buylist(sd,( len <= 0 ) ? 0 : len/sizeof(struct CZ_PURCHASE_ITEM),count,item_list);
 
 		WFIFOW(fd,0)  = 0x289;
 		WFIFOL(fd,2)  = sd->shop_point;

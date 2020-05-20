@@ -1030,7 +1030,8 @@ void npc_buysellsel(struct map_session_data *sd, int id, unsigned char type)
  */
 // return value:
 // 0: The deal has successfully completed., 1: You dont have enough zeny., 2: you are overcharged!, 3: You are over your weight limit.
-int npc_buylist(struct map_session_data *sd,int n,unsigned short *item_list)
+
+int npc_buylist(struct map_session_data *sd,int n,struct CZ_PURCHASE_ITEM *item_list)
 {
 	struct npc_data *nd;
 	double z;
@@ -1051,10 +1052,10 @@ int npc_buylist(struct map_session_data *sd,int n,unsigned short *item_list)
 	z = 0.;
 	for(i = 0; i < n; i++) {
 		int nameid, amount;
-		amount = (int)item_list[i * 2];
+		amount = (int)item_list[i].amount;
 		if (amount <= 0)
 			return 3;
-		nameid = (int)item_list[i * 2 + 1];
+		nameid = (int)item_list[i].id;
 		if (nameid <= 0 || (item_data = itemdb_exists(nameid)) == NULL)
 			return 3;
 
@@ -1063,7 +1064,7 @@ int npc_buylist(struct map_session_data *sd,int n,unsigned short *item_list)
 			if (view_id > 0) {
 				if (view_id == nameid) {
 					// 元のアイテムIDに置き換え
-					item_list[i*2+1] = (unsigned short)nd->u.shop_item[j].nameid;
+					item_list[i].id = (unsigned short)nd->u.shop_item[j].nameid;
 					break;
 				}
 			} else if (nd->u.shop_item[j].nameid == nameid) {
@@ -1109,10 +1110,10 @@ int npc_buylist(struct map_session_data *sd,int n,unsigned short *item_list)
 		struct item item_tmp;
 
 		memset(&item_tmp,0,sizeof(item_tmp));
-		item_tmp.nameid   = item_list[i*2+1];
+		item_tmp.nameid   = item_list[i].id;
 		item_tmp.identify = 1;	// npc販売アイテムは鑑定済み
 
-		pc_additem(sd,&item_tmp,item_list[i*2]);
+		pc_additem(sd,&item_tmp,item_list[i].amount);
 	}
 
 	// 商人経験値
@@ -1289,7 +1290,7 @@ int npc_pointshop_buy(struct map_session_data *sd, int nameid, int amount)
  * スペシャルアイテム購入複数
  *------------------------------------------
  */
-int npc_pointshop_buylist(struct map_session_data *sd, int len, int count, const unsigned short *item_list)
+int npc_pointshop_buylist(struct map_session_data *sd, int len, int count, const struct CZ_PURCHASE_ITEM *item_list)
 {
 	struct npc_data *nd;
 	struct item_data *item_data;
@@ -1314,8 +1315,8 @@ int npc_pointshop_buylist(struct map_session_data *sd, int len, int count, const
 	blank = pc_inventoryblank(sd);
 
 	for(i = 0; i < count; i++) {
-		const unsigned short nameid = item_list[i*2+1];
-		const unsigned short amount = item_list[i*2+0];
+		const unsigned short nameid = item_list[i].id;
+		const unsigned short amount = item_list[i].amount;
 
 		if(nameid == 0 || amount == 0)
 			return 5;
@@ -1366,8 +1367,8 @@ int npc_pointshop_buylist(struct map_session_data *sd, int len, int count, const
 	sd->shop_point -= point;
 
 	for( i = 0; i < count; i++) {
-		const unsigned short nameid = item_list[i*2+1];
-		const unsigned short amount = item_list[i*2+0];
+		const unsigned short nameid = item_list[i].id;
+		const unsigned short amount = item_list[i].amount;
 		struct item item_tmp;
 
 		for(j = 0; nd->u.shop_item[j].nameid; j++) {

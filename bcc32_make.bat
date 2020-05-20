@@ -61,7 +61,7 @@ set PATH=C:\Users\Admin\Documents\tool\BCC102\bin;C:\Users\Admin\Documents\tool\
 @rem 2007-05-21aSakexe: 20070521
 @rem 2007-02-12aSakexe: 20070212
 @rem 2006-10-23aSakexe: 20061023
-set __PACKETDEF__=-DPACKETVER=20161228 -DNEW_006b
+set __PACKETDEF__=-DPACKETVER=20181121 -DNEW_006b
 
 @rem コンパイルオプション
 @rem SQL⇔TEXTの切り替え、SQL版にする場合は以下のコンパイルオプションをコメントアウトしてください
